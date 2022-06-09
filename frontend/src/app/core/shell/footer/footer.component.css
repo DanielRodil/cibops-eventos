@@ -1,0 +1,10 @@
+/* Se ponen a 0 los margenes del párrafo del pie de página */
+footer p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Se utiliza el blanco para el texto de los enlaces del pie de página */
+footer a {
+  color: white;
+}

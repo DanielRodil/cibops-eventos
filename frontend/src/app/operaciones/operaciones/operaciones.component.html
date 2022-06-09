@@ -1,0 +1,34 @@
+<body class="d-flex flex-column min-vh-100">
+  <main>
+    <div class="container mt-auto">
+      <h2>Operaciones</h2>
+
+      <div *ngFor="let operacion of operaciones">
+        <app-operacion-item
+          [operacion]="operacion"
+          (operacionEliminar)="onOperacionEliminar($event)"
+          (operacionConsultar)="onOperacionConsultar($event)"
+          (operacionSeleccionada)="verDatos($event)">
+        </app-operacion-item>
+
+        <!-- <pre>{{ operacion | json }}</pre> -->
+
+      </div>
+
+    </div>
+  </main>
+</body>
+
+<!-- Modal -->
+<div class="modal fade" id="modalOperacion" tabindex="-1" role="dialog" aria-labelledby="datosOperacion" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-operacion [operacion]="operacionVerDatos"></app-operacion>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+/*la altura de la imagen con id #logociber es fija de 65px */
+#logociber {
+  height: 65px;
+  padding-left: 10px;
+}
+
+.logo {
+  height: 65px;
+  padding-left: 10px;
+}

@@ -1,0 +1,58 @@
+<body class="d-flex flex-column min-vh-100">
+  <main>
+    <div class="container mt-auto">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h2>Alta Operación</h2>
+
+                <form action="/action_page.php" class="was-validated">
+                    <div class="mb-3 mt-3">
+                        <label class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombreOperacion"
+                            placeholder="Introduzca el nombre de la Operación" name="nombreOperacion" minlength="3" maxlength="30"
+                            [(ngModel)]="operacion.nombre" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Descripción:</label>
+                        <textarea type="text" class="form-control" rows="6" id="descripcion"
+                            placeholder="Introduzca la descripción de la Operación (máximo 500 caracteres)"
+                            name="descripcion" minlength="3" maxlength="500" [(ngModel)]="operacion.descripcion" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Fecha Apertura:</label>
+                      <input type="date" class="form-control" id="fechaApertura" name="fechaApertura" [(ngModel)]="operacion.fechaApertura">
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Fecha Cierre:</label>
+                      <input type="date" class="form-control" id="fechaCierre" name="fechaCierre" [(ngModel)]="operacion.fechaCierre">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- <pre>{{ operacion | json }}</pre> -->
+
+
+        <div class="row justify-content-center">
+            <div class="col-2">
+              <button id="guardar" type="submit" class="btn btn-primary"
+              (click)="onAddOperacion()" routerLink="/operaciones">Guardar</button>
+            </div>
+
+            <div class="col-2">
+              <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+            </div>
+
+            <div class="col-2">
+              <a routerLink="nuevoevento"><button id="nuevoEvento" role="button" class="btn btn-success">Nuevo Evento</button></a>
+            </div>
+        </div>
+
+      </div>
+  </main>
+  </body>
+
+

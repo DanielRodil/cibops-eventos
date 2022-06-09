@@ -1,0 +1,9 @@
+/* el texto del documento se centra */
+* {
+  text-align: center;
+}
+
+/* el color del background del body es #EEEEEE */
+main {
+  background-color: #EEEEEE;
+}
