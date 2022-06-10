@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OperacionFormComponent } from './operaciones/operacion-form/operacion-form.component';
 import { OperacionComponent } from './operaciones/operacion/operacion.component';
 import { OperacioneditarComponent } from './operaciones/operacioneditar/operacioneditar.component';
+import { EventosComponent } from './eventos/eventos.component';
+import { EventoItemComponent } from './eventos/evento-item/evento-item.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { OperacioneditarComponent } from './operaciones/operacioneditar/operacio
     OperacionItemComponent,
     OperacionFormComponent,
     OperacionComponent,
-    OperacioneditarComponent
+    OperacioneditarComponent,
+    EventosComponent,
+    EventoItemComponent
   ],
   imports: [
     CommonModule,
