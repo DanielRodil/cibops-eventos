@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Operacion } from '../models/operacion';
-import { OperacionImpl } from '../models/operacion-impl';
+import { Operacion } from '../../models/operacion';
+import { OperacionImpl } from '../../models/operacion-impl';
 import { faMagnifyingGlass, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 

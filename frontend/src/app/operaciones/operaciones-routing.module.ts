@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OperacionFormComponent } from './operacion-form/operacion-form.component';
+import { OperacionFormComponent } from './operaciones/operacion-form/operacion-form.component';
 import { OperacioneditarComponent } from './operaciones/operacioneditar/operacioneditar.component';
 import { OperacionesComponent } from './operaciones/operaciones.component';
 

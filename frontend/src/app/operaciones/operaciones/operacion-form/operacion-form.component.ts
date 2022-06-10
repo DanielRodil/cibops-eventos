@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Operacion } from '../models/operacion';
-import { OperacionImpl } from '../models/operacion-impl';
-import { OperacionService } from '../service/operacion.service';
+import { Operacion } from '../../models/operacion';
+import { OperacionImpl } from '../../models/operacion-impl';
+import { OperacionService } from '../../service/operacion.service';
 
 @Component({
   selector: 'app-operacion-form',
