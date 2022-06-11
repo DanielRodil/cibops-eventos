@@ -1,1 +1,26 @@
-<p>evento-item works!</p>
+<main>
+    <div class="container mt-auto">
+
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <li class="list-group-item">{{ actividadoperativa.nombre }}</li>
+            </div>
+            <div class="col-1">
+                <a>
+                    <fa-icon [icon]="faMagnifyingGlass" class="fa-2x"></fa-icon>
+                </a>
+            </div>
+            <div class="col-1">
+                <a>
+                    <fa-icon [icon]="faPencil" class="fa-2x"></fa-icon>
+                </a>
+            </div>
+            <div class="col-1">
+                <a>
+                    <fa-icon [icon]="faTrashCan" class="fa-2x"></fa-icon>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</main>

@@ -23,8 +23,8 @@ export class OperacionesComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit(): void {
-    this.operacionService.getOperaciones().subscribe((response) => this.operaciones =
-    this.operacionService.extraerOperaciones(response));  
+    this.operacionService.getOperaciones().subscribe((response) => 
+    this.operaciones = this.operacionService.extraerOperaciones(response));  
   }
 
   onOperacionEliminar(operacion: Operacion){

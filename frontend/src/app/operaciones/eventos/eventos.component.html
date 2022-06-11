@@ -1,1 +1,16 @@
-<p>eventos works!</p>
+    <main>
+        <div class="container mt-auto">
+            <br>
+            <br>
+            <h3>Eventos</h3>
+
+            <div *ngFor="let actividadoperativa of actividadesOperativas">
+                <app-evento-item [actividadoperativa]="actividadoperativa">
+                </app-evento-item>
+
+                <pre>{{ actividadoperativa | json }}</pre>
+
+            </div>
+
+        </div>
+    </main>
