@@ -12,6 +12,9 @@ import { OperacioneditarComponent } from './operaciones/operacion-editar/operaci
 import { EventosComponent } from './eventos/eventos.component';
 import { ActividadoperativaItemComponent } from './eventos/actividadoperativa-item/actividadoperativa-item.component';
 import { GestionjudicialItemComponent } from './eventos/gestionjudicial-item/gestionjudicial-item.component';
+import { EventosConsultarComponent } from './eventos-consultar/eventos-consultar.component';
+import { ActividadoperativaConsultarComponent } from './eventos-consultar/actividadoperativa-consultar/actividadoperativa-consultar.component';
+import { GestionjudicialConsultarComponent } from './eventos-consultar/gestionjudicial-consultar/gestionjudicial-consultar.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { GestionjudicialItemComponent } from './eventos/gestionjudicial-item/ges
     OperacioneditarComponent,
     EventosComponent,
     GestionjudicialItemComponent,
-    ActividadoperativaItemComponent
+    ActividadoperativaItemComponent,
+    EventosConsultarComponent,
+    ActividadoperativaConsultarComponent,
+    GestionjudicialConsultarComponent
   ],
   imports: [
     CommonModule,
