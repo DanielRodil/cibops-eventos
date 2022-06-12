@@ -34,4 +34,14 @@ export class OperacioneditarComponent implements OnInit {
     return this.activatedRoute.snapshot.params['id'];
   }
 
+  onEventoCrear(operacion: Operacion){
+    this.verDatos(operacion);
+    let url = `operaciones/editar/${operacion.operacionId}/formularioEvento`;
+    this.router.navigate([url])
+  }
+
+  verDatos(operacion: Operacion): void {
+    this.operacion = operacion;
+  }
+
 }

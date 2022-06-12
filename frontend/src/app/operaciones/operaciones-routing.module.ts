@@ -16,7 +16,7 @@ const routes: Routes = [
     component: OperacionFormComponent
   },
   {
-    path: 'formularioEvento',
+    path: 'editar/:id/formularioEvento',
     component: EventoFormComponent
   },
   {

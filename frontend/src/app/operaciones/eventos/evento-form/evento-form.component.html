@@ -4,71 +4,96 @@
             <div class="row justify-content-center">
                 <div class="col-8">
                     <h2>Nuevo Evento</h2>
-                    <form action="/action_page.php" class="was-validated">
+                    <form class="was-validated">
                         <div class="mb-3 mt-3">
                             <label class="form-label">Tipo de Evento:</label>
-                            <select class="form-select" aria-label="Default select example" required>
+                            <select [(ngModel)]="formulario" class="form-select" aria-label="Default select example" required>
                                 <option selected></option>
-                                <option value="1">Actividad operativa</option>
+                                <option value="1">Actividad Operativa</option>
                                 <option value="2">Gestión Judicial</option>
                             </select>
                         </div>
-                        <div class="mb-3">
+
+
+                        <div class="mb-3" *ngIf="formulario == 1">
                             <label class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombreOperacion"
-                                placeholder="Introduzca el nombre de la Operación" name="nombreOperacion" maxlength="30"
-                                required>
+                            <input type="text" class="form-control" placeholder="Introduzca el nombre de la actividad operativa" 
+                                name="nombreActividadOperativa" maxlength="30"
+                                [(ngModel)]="actividadoperativa.nombre" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3" *ngIf="formulario == 1">
                             <label class="form-label">Descripción:</label>
-                            <textarea type="text" class="form-control" rows="6" id="descripcion"
-                                placeholder="Introduzca la descripción de la Operación (máximo 500 caracteres)"
-                                name="descripcion" maxlength="500" required></textarea>
+                            <textarea type="text" class="form-control" rows="6"
+                                placeholder="Introduzca la descripción de la actividad operativa (máximo 500 caracteres)"
+                                name="descripcion" maxlength="500" [(ngModel)]="actividadoperativa.descripcion" required></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Órgano Judicial:</label>
-                            <input type="text" class="form-control" id="POC" placeholder="Introduzca el órgano judicial"
-                                name="organoJudicial">
-                        </div>
-                        <div><label class="form-label">Gastos:</label></div>
-                        <div class="mb-3 input-group">
-                            <input type="text" class="form-control"
-                                placeholder="Introduzca los gastos realizados durante la Actividad Operativa">
+                        <div><label class="form-label" *ngIf="formulario == 1">Gastos:</label></div>
+                        <div class="mb-3 input-group" *ngIf="formulario == 1">
+                            <input type="text" class="form-control" placeholder="Introduzca los gastos realizados durante la Actividad Operativa"
+                                [(ngModel)]="actividadoperativa.gastos">
                             <span class="input-group-text">€</span>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Añadir Agente:</label>
-                            <select class="form-select" aria-label="Default select example" required>
-                                <option selected></option>
-                                <option value="1">A11111B</option>
-                                <option value="2">C22222D</option>
-                                <option value="3">E33333F</option>
-                                <option value="4">G44444H</option>
-                                <option value="5">I55555J</option>
-                                <option value="6">K66666L</option>
-                                <option value="7">M77777N</option>
-                                <option value="8">O88888P</option>
-                            </select>
+
+                        <div class="mb-3" *ngIf="formulario == 2">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" class="form-control"
+                                placeholder="Introduzca el nombre de la gestión judicial" name="nombreGestionJudicial" maxlength="30"
+                                [(ngModel)]="gestionjudicial.nombre" required>
                         </div>
-                        <div><label class="form-label">Agentes Participantes:</label></div>
-                        <div class="mb-3">
-                            <ul class="list-group">
-                                <li class="list-group-item">A11111B</li>
-                                <li class="list-group-item">C22222D</li>
-                                <li class="list-group-item">G44444H</li>
-                            </ul>
+                        <div class="mb-3" *ngIf="formulario == 2">
+                            <label class="form-label">Descripción:</label>
+                            <textarea type="text" class="form-control" rows="6" id="descripcion"
+                                placeholder="Introduzca la descripción de la gestión judicial (máximo 500 caracteres)"
+                                name="descripcion" maxlength="500" [(ngModel)]="gestionjudicial.descripcion" required></textarea>
                         </div>
+                        <div class="mb-3" *ngIf="formulario == 2">
+                            <label class="form-label">Órgano Judicial:</label>
+                            <input type="text" class="form-control" placeholder="Introduzca el órgano judicial"
+                                name="organoJudicial" [(ngModel)]="gestionjudicial.organoJudicial" required>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-2">
-                    <button id="guardar" type="submit" class="btn btn-primary">Guardar</button>
+                <div class="col-2" *ngIf="formulario == 1">
+                    <button id="guardarAO" type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-                <div class="col-2">
+                <div class="col-2" *ngIf="formulario == 2">
+                    <button id="guardarGJ" type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+                <div class="col-2" *ngIf="formulario ==1 || formulario == 2">
                     <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </main>
 </body>
