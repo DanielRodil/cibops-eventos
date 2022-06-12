@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ActividadoperativaImpl } from '../models/actividadoperativa-impl';
 import { Evento } from '../models/evento';
+import { GestionjudicialImpl } from '../models/gestionjudicial-impl';
 import { EventoService } from '../service/evento.service';
 import { OperacionService } from '../service/operacion.service';
 
@@ -14,15 +15,19 @@ export class EventosComponent implements OnInit {
 
   eventos: Evento[] = [];
   actividadesOperativas: ActividadoperativaImpl[] = [];
+  gestionesjudiciales: GestionjudicialImpl[] = [];
 
   constructor(private operacionService: OperacionService,
+              private activatedRoute: ActivatedRoute,
               private eventoService: EventoService,
               private router : Router) { }
   
   ngOnInit(): void {
-    this.eventoService.getEventosOp1().subscribe((res) => 
-    this.actividadesOperativas = this.eventoService.extraerAOOp1(res));
-  }
-
+    let id: string = this.activatedRoute.snapshot.params['id'];
+    this.eventoService.getEventosOperacion(id).subscribe((res) => 
+    this.actividadesOperativas = this.eventoService.extraerActividadesOperativas(res));
+    this.eventoService.getEventosOperacion(id).subscribe((res) => 
+    this.gestionesjudiciales = this.eventoService.extraerGestionesJudiciales(res));
+  } 
   
 }
