@@ -1,40 +1,57 @@
 <body class="d-flex flex-column min-vh-100">
     <main>
         <div class="container mt-auto">
+
+            <h2>Editar Operación</h2>
+
             <div class="row justify-content-center">
                 <div class="col-8">
-                    <h2>Editar Operación</h2>
-
                     <form action="/action_page.php" class="was-validated">
+                        
                         <div class="mb-3 mt-3">
                             <label class="form-label">Nombre:</label>
                             <input type="text" class="form-control" id="nombreOperacion" [(ngModel)]="operacion.nombre">
                         </div>
-                    
+
                         <div class="mb-3">
                             <label class="form-label">Descripción:</label>
                             <textarea type="text" class="form-control" rows="6" id="descripcion" name="descripcion"
                                 [(ngModel)]="operacion.descripcion"></textarea>
                         </div>
-                    
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <form action="/action_page.php" class="was-validated">
                         <div class="mb-3">
                             <label class="form-label">Fecha Apertura:</label>
                             <input type="date" class="form-control" id="fechaApertura" name="fechaApertura"
                                 [(ngModel)]="operacion.fechaApertura">
                         </div>
-                    
+                    </form>
+                </div>
+
+                <div class="col-4">
+                    <form action="/action_page.php" class="was-validated">
                         <div class="mb-3">
                             <label class="form-label">Fecha Cierre:</label>
-                            <input type="date" class="form-control" id="fechaCierre" name="fechaCierre" [(ngModel)]="operacion.fechaCierre">
+                            <input type="date" class="form-control" id="fechaCierre" name="fechaCierre"
+                                [(ngModel)]="operacion.fechaCierre">
                         </div>
                     </form>
-
-                    <app-eventos></app-eventos>
-
                 </div>
+
+            </div>
+
+            <div>
+                <app-eventos></app-eventos>
             </div>
 
             <div class="row justify-content-center">
+
                 <div class="col-2">
                     <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarOperacion()"
                         routerLink="/operaciones">Guardar</button>
