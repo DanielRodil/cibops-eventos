@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Actividadoperativa } from '../models/actividadoperativa';
 import { ActividadoperativaImpl } from '../models/actividadoperativa-impl';
 import { GestionjudicialImpl } from '../models/gestionjudicial-impl';
 
