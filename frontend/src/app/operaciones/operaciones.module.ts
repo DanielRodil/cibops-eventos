@@ -15,6 +15,7 @@ import { GestionjudicialItemComponent } from './eventos/gestionjudicial-item/ges
 import { EventosConsultarComponent } from './eventos-consultar/eventos-consultar.component';
 import { ActividadoperativaConsultarComponent } from './eventos-consultar/actividadoperativa-consultar/actividadoperativa-consultar.component';
 import { GestionjudicialConsultarComponent } from './eventos-consultar/gestionjudicial-consultar/gestionjudicial-consultar.component';
+import { EventoFormComponent } from './eventos/evento-form/evento-form.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { GestionjudicialConsultarComponent } from './eventos-consultar/gestionju
     ActividadoperativaItemComponent,
     EventosConsultarComponent,
     ActividadoperativaConsultarComponent,
-    GestionjudicialConsultarComponent
+    GestionjudicialConsultarComponent,
+    EventoFormComponent
   ],
   imports: [
     CommonModule,
