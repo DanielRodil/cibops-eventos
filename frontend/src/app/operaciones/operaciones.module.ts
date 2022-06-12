@@ -7,8 +7,8 @@ import { OperacionItemComponent } from './operaciones/operacion-item/operacion-i
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OperacionFormComponent } from './operaciones/operacion-form/operacion-form.component';
-import { OperacionComponent } from './operaciones/operacion/operacion.component';
-import { OperacioneditarComponent } from './operaciones/operacioneditar/operacioneditar.component';
+import { OperacionComponent } from './operaciones/operacion-consultar/operacion.component';
+import { OperacioneditarComponent } from './operaciones/operacion-editar/operacioneditar.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { ActividadoperativaItemComponent } from './eventos/actividadoperativa-item/actividadoperativa-item.component';
 import { GestionjudicialItemComponent } from './eventos/gestionjudicial-item/gestionjudicial-item.component';

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EventosComponent } from './eventos/eventos.component';
 import { OperacionFormComponent } from './operaciones/operacion-form/operacion-form.component';
-import { OperacioneditarComponent } from './operaciones/operacioneditar/operacioneditar.component';
+import { OperacionComponent } from './operaciones/operacion-consultar/operacion.component';
+import { OperacioneditarComponent } from './operaciones/operacion-editar/operacioneditar.component';
 import { OperacionesComponent } from './operaciones/operaciones.component';
 
 const routes: Routes = [
@@ -15,12 +16,12 @@ const routes: Routes = [
     component: OperacionFormComponent
   },
   {
-    path: ':id',
+    path: 'editar/:id',
     component: OperacioneditarComponent
   },
   {
-    path: ':id/eventos',
-    component: EventosComponent
+    path: 'consultar/:id',
+    component: OperacionComponent
   }
 ];
 

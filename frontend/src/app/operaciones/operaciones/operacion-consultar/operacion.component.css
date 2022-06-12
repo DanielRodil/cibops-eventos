@@ -1,4 +1,5 @@
 /*El container hijo directo del main tiene una altura de 100px, para no superponerse al encabezado fixed al reducir pantalla */
+
 main > .container {
     padding-top: 100px;
   }

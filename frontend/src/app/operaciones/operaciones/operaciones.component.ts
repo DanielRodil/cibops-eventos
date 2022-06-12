@@ -32,9 +32,15 @@ export class OperacionesComponent implements OnInit {
     this.router.navigate(['operaciones']);
   }
 
+  onOperacionEditar(operacion: Operacion){
+    this.verDatos(operacion);
+    let url = `operaciones/editar/${operacion.operacionId}`;
+    this.router.navigate([url])
+  }
+
   onOperacionConsultar(operacion: Operacion){
     this.verDatos(operacion);
-    let url = `operaciones/${operacion.operacionId}`;
+    let url = `operaciones/consultar/${operacion.operacionId}`;
     this.router.navigate([url])
   }
 

@@ -6,13 +6,13 @@
         <li class="list-group-item">{{ operacion.nombre }}</li>
       </div>
       <div class="col-1">
-        <a class="" data-bs-toggle="modal" data-bs-target="#modalOperacion" (click)="seleccionar()">
+        <a class="" data-bs-toggle="modal" data-bs-target="#modalOperacion" (click)="consultar()">
           <fa-icon [icon]="faMagnifyingGlass" class="fa-2x"></fa-icon>
         </a>
       </div>
       <div class="col-1">
         <a>
-          <fa-icon [icon]="faPencil" class="fa-2x" (click)="consultar()"></fa-icon>
+          <fa-icon [icon]="faPencil" class="fa-2x" (click)="editar()"></fa-icon>
         </a>
       </div>
       <div class="col-1">
