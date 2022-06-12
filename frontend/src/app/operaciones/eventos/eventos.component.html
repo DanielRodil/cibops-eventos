@@ -1,16 +1,24 @@
     <main>
         <div class="container mt-auto">
             <br>
-            <br>
             <h3>Eventos</h3>
 
             <div *ngFor="let actividadoperativa of actividadesOperativas">
-                <app-evento-item [actividadoperativa]="actividadoperativa">
-                </app-evento-item>
+                <app-actividadoperativa-item [actividadoperativa]="actividadoperativa">
+                </app-actividadoperativa-item>
 
-                <pre>{{ actividadoperativa | json }}</pre>
+                <!-- <pre>{{ actividadoperativa | json }}</pre> -->
 
             </div>
+
+            <div *ngFor="let gestionjudicial of gestionesjudiciales">
+                <app-gestionjudicial-item [gestionjudicial]="gestionjudicial">
+                </app-gestionjudicial-item>
+
+                <!-- <pre>{{ gestionjudicial | json }}</pre> -->
+
+            </div>
+            <br>
 
         </div>
     </main>

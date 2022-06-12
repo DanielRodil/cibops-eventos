@@ -10,7 +10,8 @@ import { OperacionFormComponent } from './operaciones/operacion-form/operacion-f
 import { OperacionComponent } from './operaciones/operacion/operacion.component';
 import { OperacioneditarComponent } from './operaciones/operacioneditar/operacioneditar.component';
 import { EventosComponent } from './eventos/eventos.component';
-import { EventoItemComponent } from './eventos/evento-item/evento-item.component';
+import { ActividadoperativaItemComponent } from './eventos/actividadoperativa-item/actividadoperativa-item.component';
+import { GestionjudicialItemComponent } from './eventos/gestionjudicial-item/gestionjudicial-item.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { EventoItemComponent } from './eventos/evento-item/evento-item.component
     OperacionComponent,
     OperacioneditarComponent,
     EventosComponent,
-    EventoItemComponent
+    GestionjudicialItemComponent,
+    ActividadoperativaItemComponent
   ],
   imports: [
     CommonModule,
