@@ -18,14 +18,14 @@
                         <div class="mb-3" *ngIf="formulario == 1">
                             <label class="form-label">Nombre:</label>
                             <input type="text" class="form-control" placeholder="Introduzca el nombre de la actividad operativa" 
-                                name="nombreActividadOperativa" maxlength="30"
+                                name="nombreActividadOperativa" minlength="3" maxlength="30"
                                 [(ngModel)]="actividadoperativa.nombre" required>
                         </div>
                         <div class="mb-3" *ngIf="formulario == 1">
                             <label class="form-label">Descripción:</label>
                             <textarea type="text" class="form-control" rows="6"
                                 placeholder="Introduzca la descripción de la actividad operativa (máximo 500 caracteres)"
-                                name="descripcion" maxlength="500" [(ngModel)]="actividadoperativa.descripcion" required></textarea>
+                                name="descripcion" minlength="3" maxlength="500" [(ngModel)]="actividadoperativa.descripcion" required></textarea>
                         </div>
                         <div><label class="form-label" *ngIf="formulario == 1">Gastos:</label></div>
                         <div class="mb-3 input-group" *ngIf="formulario == 1">
@@ -36,20 +36,20 @@
 
                         <div class="mb-3" *ngIf="formulario == 2">
                             <label class="form-label">Nombre:</label>
-                            <input type="text" class="form-control"
-                                placeholder="Introduzca el nombre de la gestión judicial" name="nombreGestionJudicial" maxlength="30"
+                            <input type="text" class="form-control" placeholder="Introduzca el nombre de la gestión judicial"
+                                name="nombreGestionJudicial" minlength="3" maxlength="30"
                                 [(ngModel)]="gestionjudicial.nombre" required>
                         </div>
                         <div class="mb-3" *ngIf="formulario == 2">
                             <label class="form-label">Descripción:</label>
                             <textarea type="text" class="form-control" rows="6" id="descripcion"
                                 placeholder="Introduzca la descripción de la gestión judicial (máximo 500 caracteres)"
-                                name="descripcion" maxlength="500" [(ngModel)]="gestionjudicial.descripcion" required></textarea>
+                                name="descripcion" minlength="3" maxlength="500" [(ngModel)]="gestionjudicial.descripcion" required></textarea>
                         </div>
                         <div class="mb-3" *ngIf="formulario == 2">
                             <label class="form-label">Órgano Judicial:</label>
                             <input type="text" class="form-control" placeholder="Introduzca el órgano judicial"
-                                name="organoJudicial" [(ngModel)]="gestionjudicial.organoJudicial" required>
+                                name="organoJudicial" minlength="3" [(ngModel)]="gestionjudicial.organoJudicial" required>
                         </div>
                         
                     </form>
@@ -57,18 +57,18 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2" *ngIf="formulario == 1">
-                    <button id="guardarAO" type="submit" class="btn btn-primary">Guardar</button>
+                    <button id="guardarAO" type="submit" class="btn btn-primary" (click)="onAddActividadOperativa()">Guardar</button>
                 </div>
                 <div class="col-2" *ngIf="formulario == 2">
-                    <button id="guardarGJ" type="submit" class="btn btn-primary">Guardar</button>
+                    <button id="guardarGJ" type="submit" class="btn btn-primary" (click)="onAddGestionJudicial()">Guardar</button>
                 </div>
                 <div class="col-2" *ngIf="formulario ==1 || formulario == 2">
                     <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
                 </div>
             </div>
         </div>
-        <br>
-        <br>
+        <br>         <pre>{{ actividadoperativa | json }}</pre>
+        <br>         <pre>{{ gestionjudicial | json }}</pre>
         <br>
         <br>
         <br>

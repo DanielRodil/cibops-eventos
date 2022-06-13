@@ -12,6 +12,8 @@ export class EventoService {
 
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}operaciones`
+  private urlEndPointAO: string = `${this.host}actividadesoperativas`
+  private urlEndPointGJ: string = `${this.host}gestionesjudiciales`
 
   constructor(private http: HttpClient) { }
   
@@ -38,6 +40,20 @@ export class EventoService {
     return actividadoperativa;
   }
 
+  addActividadOperativa(actividadoperativa: ActividadoperativaImpl): Observable<any> {
+    return this.http.post(`${this.urlEndPointAO}`, actividadoperativa).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
   extraerGestionesJudiciales(respuestaApi: any): GestionjudicialImpl[] {
     const gestionesjudiciales: GestionjudicialImpl[] = [];
     respuestaApi._embedded.gestionesjudiciales.forEach((p: any) => {
@@ -53,6 +69,20 @@ export class EventoService {
     gestionjudicial.descripcion = gestionjudicialAPI.descripcion;
     gestionjudicial.organoJudicial = gestionjudicialAPI.organoJudicial;
     return gestionjudicial;
+  }
+
+  addGestionJudicial(gestionjudicial: GestionjudicialImpl): Observable<any> {
+    return this.http.post(`${this.urlEndPointGJ}`, gestionjudicial).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
   }
 
   getEventosOperacion(id: string): Observable<any> {
