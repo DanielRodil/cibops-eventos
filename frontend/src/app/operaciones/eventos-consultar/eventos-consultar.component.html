@@ -4,21 +4,25 @@
         <h3>Eventos</h3>
 
         <div *ngFor="let actividadoperativa of actividadesOperativas">
-            <app-actividadoperativa-consultar [actividadoperativa]="actividadoperativa">
+            <app-actividadoperativa-consultar 
+                [actividadoperativa]="actividadoperativa"
+                (actividadoperativaConsultar)="onActividadOperativaConsultar($event)">
             </app-actividadoperativa-consultar>
 
             <!-- <pre>{{ actividadoperativa | json }}</pre> -->
 
         </div>
-
+<!-- 
         <div *ngFor="let gestionjudicial of gestionesjudiciales">
-            <app-gestionjudicial-consultar [gestionjudicial]="gestionjudicial">
+            <app-gestionjudicial-consultar 
+                [gestionjudicial]="gestionjudicial"
+                (gestionjudicialConsultar)="onGestionJudicialConsultar($event)">
             </app-gestionjudicial-consultar>
 
-            <!-- <pre>{{ gestionjudicial | json }}</pre> -->
+            <pre>{{ gestionjudicial | json }}</pre>
 
         </div>
-        <br>
+        <br> -->
 
     </div>
 </main>

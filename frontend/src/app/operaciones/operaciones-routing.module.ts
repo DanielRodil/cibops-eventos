@@ -5,6 +5,7 @@ import { OperacionComponent } from './operaciones/operacion-consultar/operacion.
 import { OperacioneditarComponent } from './operaciones/operacion-editar/operacioneditar.component';
 import { OperacionesComponent } from './operaciones/operaciones.component';
 import { EventoFormComponent } from './eventos/evento-form/evento-form.component';
+import { ActividadoperativaConsultarFormComponent } from './eventos-consultar/actividadoperativa-consultar-form/actividadoperativa-consultar-form.component';
 
 const routes: Routes = [
   {
@@ -16,17 +17,21 @@ const routes: Routes = [
     component: OperacionFormComponent
   },
   {
-    path: 'editar/:id/formularioEvento',
-    component: EventoFormComponent
-  },
-  {
     path: 'editar/:id',
     component: OperacioneditarComponent
   },
   {
+    path: 'editar/:id/formularioEvento',
+    component: EventoFormComponent
+  },
+  {
     path: 'consultar/:id',
     component: OperacionComponent
-  }
+  },
+  {
+    path: 'actividadesoperativas/consultar/:id',
+    component: ActividadoperativaConsultarFormComponent
+  },
 ];
 
 @NgModule({

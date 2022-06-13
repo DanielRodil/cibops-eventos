@@ -16,6 +16,8 @@ import { EventosConsultarComponent } from './eventos-consultar/eventos-consultar
 import { ActividadoperativaConsultarComponent } from './eventos-consultar/actividadoperativa-consultar/actividadoperativa-consultar.component';
 import { GestionjudicialConsultarComponent } from './eventos-consultar/gestionjudicial-consultar/gestionjudicial-consultar.component';
 import { EventoFormComponent } from './eventos/evento-form/evento-form.component';
+import { GestionjudicialConsultarFormComponent } from './eventos-consultar/gestionjudicial-consultar-form/gestionjudicial-consultar-form.component';
+import { ActividadoperativaConsultarFormComponent } from './eventos-consultar/actividadoperativa-consultar-form/actividadoperativa-consultar-form.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { EventoFormComponent } from './eventos/evento-form/evento-form.component
     EventosConsultarComponent,
     ActividadoperativaConsultarComponent,
     GestionjudicialConsultarComponent,
-    EventoFormComponent
+    EventoFormComponent,
+    GestionjudicialConsultarFormComponent,
+    ActividadoperativaConsultarFormComponent
   ],
   imports: [
     CommonModule,

@@ -68,6 +68,20 @@ export class EventoService {
     );
   }
 
+  getActividadOperativa(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointAO}/${id}`).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }  
+
   extraerGestionesJudiciales(respuestaApi: any): GestionjudicialImpl[] {
     const gestionesjudiciales: GestionjudicialImpl[] = [];
     respuestaApi._embedded.gestionesjudiciales.forEach((p: any) => {
@@ -125,6 +139,8 @@ export class EventoService {
         return throwError(() => new Error(e));
       })
     );
-  }  
+  }
+  
+
 
 }

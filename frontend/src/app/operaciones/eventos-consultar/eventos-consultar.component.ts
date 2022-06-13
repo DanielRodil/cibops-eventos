@@ -13,8 +13,10 @@ export class EventosConsultarComponent implements OnInit {
 
   actividadesOperativas: ActividadoperativaImpl[] = [];
   gestionesjudiciales: GestionjudicialImpl[] = [];
+  actividadoperativaVerDatos: ActividadoperativaImpl = new ActividadoperativaImpl();
 
   constructor(private activatedRoute: ActivatedRoute,
+              private router : Router,
               private eventoService: EventoService) { }
   
   ngOnInit(): void {
@@ -23,6 +25,16 @@ export class EventosConsultarComponent implements OnInit {
     this.actividadesOperativas = this.eventoService.extraerActividadesOperativas(res));
     this.eventoService.getEventosOperacion(id).subscribe((res) => 
     this.gestionesjudiciales = this.eventoService.extraerGestionesJudiciales(res));
-  } 
+  }
+  
+  onActividadOperativaConsultar(actividadoperativa: ActividadoperativaImpl){
+    this.verDatos(actividadoperativa);
+    let url = `operaciones/actividadesoperativas/consultar/${actividadoperativa.eventoId}`;
+    this.router.navigate([url])
+  }
+
+  verDatos(actividadoperativa: ActividadoperativaImpl): void {
+    this.actividadoperativaVerDatos = actividadoperativa;
+  }
   
 }

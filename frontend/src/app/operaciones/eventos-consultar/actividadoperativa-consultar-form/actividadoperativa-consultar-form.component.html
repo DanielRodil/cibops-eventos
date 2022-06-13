@@ -1,0 +1,42 @@
+<body class="d-flex flex-column min-vh-100">
+    <main>
+        <div class="container mt-auto">
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <h2>{{actividadoperativa.nombre}}</h2>
+                    <form class="was-validated">
+
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Tipo de Evento:</label>
+                            <input type="text" class="form-control" placeholder="Actividad operativa"
+                                name="nombreActividadOperativa" minlength="3" maxlength="30" readonly>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" class="form-control"
+                                name="nombreActividadOperativa"
+                                [(ngModel)]="actividadoperativa.nombre" readonly>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Descripción:</label>
+                            <textarea type="text" class="form-control" rows="6" name="descripcion" 
+                                [(ngModel)]="actividadoperativa.descripcion" readonly></textarea>
+                        </div>
+                        <div><label class="form-label">Gastos:</label></div>
+                        <div class="mb-3 input-group">
+                            <input type="text" class="form-control"
+                                [(ngModel)]="actividadoperativa.gastos" readonly>
+                            <span class="input-group-text">€</span>
+                        </div>
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>         <pre>{{ actividadoperativa | json }}</pre>
+    </main>
+</body>
