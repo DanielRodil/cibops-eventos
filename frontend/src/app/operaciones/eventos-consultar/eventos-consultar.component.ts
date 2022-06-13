@@ -14,6 +14,7 @@ export class EventosConsultarComponent implements OnInit {
   actividadesOperativas: ActividadoperativaImpl[] = [];
   gestionesjudiciales: GestionjudicialImpl[] = [];
   actividadoperativaVerDatos: ActividadoperativaImpl = new ActividadoperativaImpl();
+  gestionjudicialVerDatos: GestionjudicialImpl = new GestionjudicialImpl();
 
   constructor(private activatedRoute: ActivatedRoute,
               private router : Router,
@@ -28,13 +29,23 @@ export class EventosConsultarComponent implements OnInit {
   }
   
   onActividadOperativaConsultar(actividadoperativa: ActividadoperativaImpl){
-    this.verDatos(actividadoperativa);
+    this.verDatosAO(actividadoperativa);
     let url = `operaciones/actividadesoperativas/consultar/${actividadoperativa.eventoId}`;
     this.router.navigate([url])
   }
 
-  verDatos(actividadoperativa: ActividadoperativaImpl): void {
+  verDatosAO(actividadoperativa: ActividadoperativaImpl): void {
     this.actividadoperativaVerDatos = actividadoperativa;
+  }
+
+  onGestionJudicialConsultar(gestionjudicial: GestionjudicialImpl){
+    this.verDatosGJ(gestionjudicial);
+    let url = `operaciones/gestionesjudiciales/consultar/${gestionjudicial.eventoId}`;
+    this.router.navigate([url])
+  }
+
+  verDatosGJ(gestionjudicial: GestionjudicialImpl): void {
+    this.gestionjudicialVerDatos = gestionjudicial;
   }
   
 }

@@ -126,7 +126,21 @@ export class EventoService {
       })
     );
   }
-
+  
+  getGestionJudicial(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointGJ}/${id}`).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+  
   getEventosOperacion(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPoint}/${id}/eventos`).pipe(
       catchError((e) => {

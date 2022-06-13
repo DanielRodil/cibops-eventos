@@ -6,6 +6,7 @@ import { OperacioneditarComponent } from './operaciones/operacion-editar/operaci
 import { OperacionesComponent } from './operaciones/operaciones.component';
 import { EventoFormComponent } from './eventos/evento-form/evento-form.component';
 import { ActividadoperativaConsultarFormComponent } from './eventos-consultar/actividadoperativa-consultar-form/actividadoperativa-consultar-form.component';
+import { GestionjudicialConsultarFormComponent } from './eventos-consultar/gestionjudicial-consultar-form/gestionjudicial-consultar-form.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'actividadesoperativas/consultar/:id',
     component: ActividadoperativaConsultarFormComponent
+  },
+  {
+    path: 'gestionesjudiciales/consultar/:id',
+    component: GestionjudicialConsultarFormComponent
   },
 ];
 

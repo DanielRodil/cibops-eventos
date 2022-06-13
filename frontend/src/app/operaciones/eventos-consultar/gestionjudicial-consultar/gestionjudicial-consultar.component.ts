@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faMagnifyingGlass, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { GestionjudicialImpl } from '../../models/gestionjudicial-impl';
 
@@ -14,10 +14,15 @@ export class GestionjudicialConsultarComponent implements OnInit {
   faTrashCan = faTrashCan;
 
   @Input() gestionjudicial: GestionjudicialImpl = new GestionjudicialImpl();
+  @Output() gestionjudicialConsultar = new EventEmitter<GestionjudicialImpl>();
 
   constructor() { }
   
   ngOnInit(): void {
+  }
+
+  consultar(): void{
+    this.gestionjudicialConsultar.emit(this.gestionjudicial);
   }
 
 }

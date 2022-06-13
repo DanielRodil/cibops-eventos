@@ -7,10 +7,10 @@
             </div>
             <div class="col-1">
                 <a>
-                    <fa-icon [icon]="faMagnifyingGlass" class="fa-2x"></fa-icon>
+                    <fa-icon [icon]="faMagnifyingGlass" class="fa-2x" (click)="consultar()"></fa-icon>
                 </a>
             </div>
         </div>
-
+        <pre>{{ gestionjudicial | json }}</pre>
     </div>
 </main>
