@@ -4,7 +4,9 @@
             <h3>Eventos</h3>
 
             <div *ngFor="let actividadoperativa of actividadesOperativas">
-                <app-actividadoperativa-item [actividadoperativa]="actividadoperativa">
+                <app-actividadoperativa-item 
+                    [actividadoperativa]="actividadoperativa"
+                    (actividadOperativaEliminar)="onActividadOperativaEliminar($event)">
                 </app-actividadoperativa-item>
 
                 <!-- <pre>{{ actividadoperativa | json }}</pre> -->
@@ -12,7 +14,9 @@
             </div>
 
             <div *ngFor="let gestionjudicial of gestionesjudiciales">
-                <app-gestionjudicial-item [gestionjudicial]="gestionjudicial">
+                <app-gestionjudicial-item 
+                    [gestionjudicial]="gestionjudicial"
+                    (gestionjudicialEliminar)="onGestionJudicialEliminar($event)">
                 </app-gestionjudicial-item>
 
                 <!-- <pre>{{ gestionjudicial | json }}</pre> -->

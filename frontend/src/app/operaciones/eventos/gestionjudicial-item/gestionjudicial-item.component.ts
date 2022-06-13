@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faMagnifyingGlass, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { GestionjudicialImpl } from '../../models/gestionjudicial-impl';
 
@@ -14,10 +14,17 @@ export class GestionjudicialItemComponent implements OnInit {
   faTrashCan = faTrashCan;
 
   @Input() gestionjudicial: GestionjudicialImpl = new GestionjudicialImpl();
+  @Output() gestionjudicialEliminar = new EventEmitter<GestionjudicialImpl>();
 
   constructor() { }
   
   ngOnInit(): void {
+  }
+
+  eliminar(): void{
+    if (confirm(`¿Está seguro de que desea eliminar la gestion judicial ${this.gestionjudicial.nombre}?`)){
+      this.gestionjudicialEliminar.emit(this.gestionjudicial);
+    }
   }
 
 }

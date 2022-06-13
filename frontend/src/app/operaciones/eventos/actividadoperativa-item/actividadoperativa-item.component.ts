@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faMagnifyingGlass, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { ActividadoperativaImpl } from '../../models/actividadoperativa-impl';
 
@@ -14,10 +14,17 @@ export class ActividadoperativaItemComponent implements OnInit {
   faTrashCan = faTrashCan;
 
   @Input() actividadoperativa: ActividadoperativaImpl = new ActividadoperativaImpl();
+  @Output() actividadOperativaEliminar = new EventEmitter<ActividadoperativaImpl>();
 
   constructor() { }
   
   ngOnInit(): void {
+  }
+
+  eliminar(): void{
+    if (confirm(`¿Está seguro de que desea eliminar la actividad operativa ${this.actividadoperativa.nombre}?`)){
+      this.actividadOperativaEliminar.emit(this.actividadoperativa);
+    }
   }
 
 }

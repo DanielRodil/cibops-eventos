@@ -15,6 +15,7 @@ export class EventosComponent implements OnInit {
   gestionesjudiciales: GestionjudicialImpl[] = [];
 
   constructor(private activatedRoute: ActivatedRoute,
+              private router : Router,
               private eventoService: EventoService) { }
   
   ngOnInit(): void {
@@ -23,6 +24,14 @@ export class EventosComponent implements OnInit {
     this.actividadesOperativas = this.eventoService.extraerActividadesOperativas(res));
     this.eventoService.getEventosOperacion(id).subscribe((res) => 
     this.gestionesjudiciales = this.eventoService.extraerGestionesJudiciales(res));
-  } 
+  }
+  
+  onActividadOperativaEliminar(actividadoperativa: ActividadoperativaImpl){
+    this.eventoService.deleteActividadOperativa(actividadoperativa.eventoId).subscribe();
+  }
+
+  onGestionJudicialEliminar(gestionjudicial: GestionjudicialImpl){
+    this.eventoService.deleteGestionJudicial(gestionjudicial.eventoId).subscribe();
+  }
   
 }
