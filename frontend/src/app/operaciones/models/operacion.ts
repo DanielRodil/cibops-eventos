@@ -4,4 +4,5 @@ export interface Operacion {
   descripcion: string;
   fechaApertura: string;
   fechaCierre: string;
+  urlOperacion: string;
 }

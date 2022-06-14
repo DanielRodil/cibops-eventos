@@ -6,6 +6,7 @@ export class OperacionImpl implements Operacion {
   descripcion: string = '';
   fechaApertura: string = '';
   fechaCierre: string = '';
+  urlOperacion: string = '';
 
   constructor() {};
 

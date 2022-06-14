@@ -42,6 +42,7 @@ export class OperacionService {
     operacion.descripcion = operacionApi.descripcion;
     operacion.fechaApertura = operacionApi.fechaApertura;
     operacion.fechaCierre = operacionApi.fechaCierre;
+    operacion.urlOperacion = operacionApi._links.operacion.href;
     return operacion;
   }
 
