@@ -68,6 +68,34 @@ export class EventoService {
     );
   }
 
+  updateActividadOperativa(actividadoperativa: ActividadoperativaImpl): Observable<any> {
+    return this.http.patch(`${this.urlEndPointAO}/${actividadoperativa.eventoId}`, actividadoperativa).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
+  getOperacionActividadOperativa(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointAO}/${id}/operacion`).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
   getActividadOperativa(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPointAO}/${id}`).pipe(
       catchError((e) => {
@@ -80,7 +108,8 @@ export class EventoService {
         return throwError(() => new Error(e));
       })
     );
-  }  
+  }
+
 
   extraerGestionesJudiciales(respuestaApi: any): GestionjudicialImpl[] {
     const gestionesjudiciales: GestionjudicialImpl[] = [];
@@ -154,7 +183,5 @@ export class EventoService {
       })
     );
   }
-  
-
 
 }

@@ -15,6 +15,7 @@ export class ActividadoperativaItemComponent implements OnInit {
 
   @Input() actividadoperativa: ActividadoperativaImpl = new ActividadoperativaImpl();
   @Output() actividadOperativaEliminar = new EventEmitter<ActividadoperativaImpl>();
+  @Output() actividadOperativaEditar = new EventEmitter<ActividadoperativaImpl>();
 
   constructor() { }
   
@@ -25,6 +26,10 @@ export class ActividadoperativaItemComponent implements OnInit {
     if (confirm(`¿Está seguro de que desea eliminar la actividad operativa ${this.actividadoperativa.nombre}?`)){
       this.actividadOperativaEliminar.emit(this.actividadoperativa);
     }
+  }
+
+  editarAO(): void{
+    this.actividadOperativaEditar.emit(this.actividadoperativa);
   }
 
 }

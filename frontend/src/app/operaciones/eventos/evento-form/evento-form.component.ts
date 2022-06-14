@@ -16,6 +16,7 @@ export class EventoFormComponent implements OnInit {
   gestionjudicial: GestionjudicialImpl = new GestionjudicialImpl();
   formulario: number = 0;
   private host: string = environment.host;
+  private urlEndPoint: string = `${this.host}operaciones`
 
   constructor(private eventoService: EventoService,
             private router: Router,
@@ -23,8 +24,8 @@ export class EventoFormComponent implements OnInit {
 
   ngOnInit(): void {
     let id: string = this.cargarOperacion();
-    this.actividadoperativa.operacion = `${this.host}${id}`;
-    this.gestionjudicial.operacion = `${this.host}${id}`;
+    this.actividadoperativa.operacion = `${this.urlEndPoint}/${id}`;
+    this.gestionjudicial.operacion = `${this.urlEndPoint}/${id}`;
   }
 
   onAddActividadOperativa(): void {

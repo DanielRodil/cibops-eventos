@@ -6,10 +6,11 @@
             <div *ngFor="let actividadoperativa of actividadesOperativas">
                 <app-actividadoperativa-item 
                     [actividadoperativa]="actividadoperativa"
-                    (actividadOperativaEliminar)="onActividadOperativaEliminar($event)">
+                    (actividadOperativaEliminar)="onActividadOperativaEliminar($event)"
+                    (actividadOperativaEditar)="onActividadOperativaEditar($event)">
                 </app-actividadoperativa-item>
 
-                <!-- <pre>{{ actividadoperativa | json }}</pre> -->
+                <pre>{{ actividadoperativa | json }}</pre>
 
             </div>
 
@@ -19,7 +20,7 @@
                     (gestionjudicialEliminar)="onGestionJudicialEliminar($event)">
                 </app-gestionjudicial-item>
 
-                <!-- <pre>{{ gestionjudicial | json }}</pre> -->
+                <pre>{{ gestionjudicial | json }}</pre>
 
             </div>
             <br>
