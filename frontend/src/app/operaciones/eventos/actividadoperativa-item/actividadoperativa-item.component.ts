@@ -22,7 +22,7 @@ export class ActividadoperativaItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  eliminar(): void{
+  eliminarAO(): void{
     if (confirm(`¿Está seguro de que desea eliminar la actividad operativa ${this.actividadoperativa.nombre}?`)){
       this.actividadOperativaEliminar.emit(this.actividadoperativa);
     }

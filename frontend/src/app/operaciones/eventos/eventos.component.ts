@@ -14,6 +14,7 @@ export class EventosComponent implements OnInit {
   actividadesOperativas: ActividadoperativaImpl[] = [];
   gestionesjudiciales: GestionjudicialImpl[] = [];
   actividadoperativaVerDatos: ActividadoperativaImpl = new ActividadoperativaImpl();
+  gestionjudicialVerDatos: GestionjudicialImpl = new GestionjudicialImpl();
 
   constructor(private activatedRoute: ActivatedRoute,
               private router : Router,
@@ -39,6 +40,12 @@ export class EventosComponent implements OnInit {
 
   onGestionJudicialEliminar(gestionjudicial: GestionjudicialImpl){
     this.eventoService.deleteGestionJudicial(gestionjudicial.eventoId).subscribe();
+  }
+
+  onGestionJudicialEditar(gestionjudicial: GestionjudicialImpl){
+    this.gestionjudicialVerDatos = gestionjudicial;
+    let url = `operaciones/gestionesjudiciales/editar/${gestionjudicial.eventoId}`;
+    this.router.navigate([url])  
   }
   
 }

@@ -8,27 +8,26 @@
 
                         <div class="mb-3 mt-3">
                             <label class="form-label">Tipo de Evento:</label>
-                            <input type="text" class="form-control" placeholder="Actividad operativa"
-                                name="nombreActividadOperativa" minlength="3" maxlength="30">
+                            <input type="text" class="form-control" placeholder="Actividad operativa" name="tipoEvento">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Nombre:</label>
                             <input type="text" class="form-control"
-                                name="nombreActividadOperativa"
-                                [(ngModel)]="actividadoperativa.nombre">
+                                name="nombreActividadOperativa" minlength="3" maxlength="30"
+                                [(ngModel)]="actividadoperativa.nombre" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Descripción:</label>
-                            <textarea type="text" class="form-control" rows="6" name="descripcion" 
-                                [(ngModel)]="actividadoperativa.descripcion"></textarea>
+                            <textarea type="text" class="form-control" rows="6" name="descripcionActividadOperativa" minlength="3" maxlength="500"
+                                [(ngModel)]="actividadoperativa.descripcion" required></textarea>
                         </div>
 
                         <div><label class="form-label">Gastos:</label></div>
                         <div class="mb-3 input-group">
                             <input type="text" class="form-control"
-                                [(ngModel)]="actividadoperativa.gastos">
+                                [(ngModel)]="actividadoperativa.gastos" required>
                             <span class="input-group-text">€</span>
                         </div>
 

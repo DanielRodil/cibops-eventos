@@ -23,6 +23,20 @@ export class EventoService {
     return numId;
   }
 
+  getEventosOperacion(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPoint}/${id}/eventos`).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
   extraerActividadesOperativas(respuestaApi: any): ActividadoperativaImpl[] {
     const actividadesoperativas: ActividadoperativaImpl[] = [];
     respuestaApi._embedded.actividadesoperativas.forEach((p: any) => {
@@ -82,20 +96,6 @@ export class EventoService {
     );
   }
 
-  getOperacionActividadOperativa(id: string): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointAO}/${id}/operacion`).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
-  }
-
   getActividadOperativa(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPointAO}/${id}`).pipe(
       catchError((e) => {
@@ -109,7 +109,6 @@ export class EventoService {
       })
     );
   }
-
 
   extraerGestionesJudiciales(respuestaApi: any): GestionjudicialImpl[] {
     const gestionesjudiciales: GestionjudicialImpl[] = [];
@@ -155,6 +154,20 @@ export class EventoService {
       })
     );
   }
+
+  updateGestionJudicial(gestionjudicial: GestionjudicialImpl): Observable<any> {
+    return this.http.patch(`${this.urlEndPointGJ}/${gestionjudicial.eventoId}`, gestionjudicial).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
   
   getGestionJudicial(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPointGJ}/${id}`).pipe(
@@ -170,18 +183,6 @@ export class EventoService {
     );
   }
   
-  getEventosOperacion(id: string): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}/${id}/eventos`).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
-          return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
-  }
+
 
 }

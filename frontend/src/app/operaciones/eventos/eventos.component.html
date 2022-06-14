@@ -17,7 +17,8 @@
             <div *ngFor="let gestionjudicial of gestionesjudiciales">
                 <app-gestionjudicial-item 
                     [gestionjudicial]="gestionjudicial"
-                    (gestionjudicialEliminar)="onGestionJudicialEliminar($event)">
+                    (gestionjudicialEliminar)="onGestionJudicialEliminar($event)"
+                    (gestionjudicialEditar)="onGestionJudicialEditar($event)">
                 </app-gestionjudicial-item>
 
                 <pre>{{ gestionjudicial | json }}</pre>

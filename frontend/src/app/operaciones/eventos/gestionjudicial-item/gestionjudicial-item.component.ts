@@ -15,16 +15,21 @@ export class GestionjudicialItemComponent implements OnInit {
 
   @Input() gestionjudicial: GestionjudicialImpl = new GestionjudicialImpl();
   @Output() gestionjudicialEliminar = new EventEmitter<GestionjudicialImpl>();
+  @Output() gestionjudicialEditar = new EventEmitter<GestionjudicialImpl>();
 
   constructor() { }
   
   ngOnInit(): void {
   }
 
-  eliminar(): void{
+  eliminarGJ(): void{
     if (confirm(`¿Está seguro de que desea eliminar la gestion judicial ${this.gestionjudicial.nombre}?`)){
       this.gestionjudicialEliminar.emit(this.gestionjudicial);
     }
+  }
+
+  editarGJ(): void{
+    this.gestionjudicialEditar.emit(this.gestionjudicial);
   }
 
 }
