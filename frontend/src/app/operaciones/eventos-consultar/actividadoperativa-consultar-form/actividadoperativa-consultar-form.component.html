@@ -24,6 +24,7 @@
                             <textarea type="text" class="form-control" rows="6" name="descripcion" 
                                 [(ngModel)]="actividadoperativa.descripcion" readonly></textarea>
                         </div>
+
                         <div><label class="form-label">Gastos:</label></div>
                         <div class="mb-3 input-group">
                             <input type="text" class="form-control"
@@ -31,9 +32,12 @@
                             <span class="input-group-text">€</span>
                         </div>
 
-
-
                     </form>
+
+                    <div>
+                        <app-agentes-evento></app-agentes-evento>
+                    </div>
+
                 </div>
             </div>
         </div>

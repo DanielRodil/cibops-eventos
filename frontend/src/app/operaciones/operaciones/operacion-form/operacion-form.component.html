@@ -51,12 +51,12 @@
             <div class="mb-3 mt-3">
               <label class="form-label operacion">POC:</label>
               <select [(ngModel)]="operacion.agente" class="form-select" 
-                      aria-label="Default select example" name="selectorFormulario" id="selectorAgente" required>
+                      aria-label="Default select example" name="selectorFormulario" id="selectorAgente">
                   <option class="form-control agente"  
                           *ngFor="let agente of agentes" 
                           value="{{agente.urlAgente}}">{{ agente.tip }}</option>
               </select>
-          </div>
+            </div>
 
           </div>
         </div>

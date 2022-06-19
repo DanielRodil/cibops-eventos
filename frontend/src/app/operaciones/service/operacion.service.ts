@@ -43,7 +43,7 @@ export class OperacionService {
     operacion.fechaApertura = operacionApi.fechaApertura;
     operacion.fechaCierre = operacionApi.fechaCierre;
     operacion.urlOperacion = operacionApi._links.operacion.href;
-    operacion.agente = operacionApi._links.agente.href;
+    // operacion.agente = operacionApi._links.agente.href;
     return operacion;
   }
 

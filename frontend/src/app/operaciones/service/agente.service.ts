@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Agente } from '../models/agente';
 import { AgenteImpl } from '../models/agente-impl';
@@ -12,6 +12,8 @@ export class AgenteService {
 
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}agentes`
+  private urlEndPointEvento: string = `${this.host}eventos`
+
 
   constructor(private http: HttpClient) { }
 
@@ -40,6 +42,20 @@ export class AgenteService {
     agente.tip = agenteApi.tip;
     agente.urlAgente = agenteApi._links.agente.href;
     return agente;
+  }
+
+  getAgentesEvento(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPointEvento}/${id}/agentes`).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
   }
 
 }

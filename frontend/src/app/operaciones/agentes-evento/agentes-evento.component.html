@@ -1,0 +1,11 @@
+<div class="container mt-auto">
+    <br>
+    <h3>Agentes Participantes</h3>
+    <br>
+
+    <div *ngFor="let agente of agentes">
+        <app-agente-evento-item [agente]="agente"></app-agente-evento-item>
+        <!-- <pre>{{ agente | json }}</pre> -->
+    </div>
+
+</div>
