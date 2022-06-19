@@ -30,6 +30,8 @@ export class OperacionesComponent implements OnInit {
   onOperacionEliminar(operacion: Operacion){
     this.operacionService.deleteOperacion(operacion.operacionId).subscribe();
     this.router.navigate(['operaciones']);
+    this.operaciones = this.operaciones.filter((e) => operacion !== e);
+    location.reload;
   }
 
   onOperacionEditar(operacion: Operacion){

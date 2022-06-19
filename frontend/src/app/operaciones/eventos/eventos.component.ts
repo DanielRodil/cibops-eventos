@@ -30,6 +30,8 @@ export class EventosComponent implements OnInit {
   
   onActividadOperativaEliminar(actividadoperativa: ActividadoperativaImpl){
     this.eventoService.deleteActividadOperativa(actividadoperativa.eventoId).subscribe();
+    this.actividadesOperativas = this.actividadesOperativas.filter((e) => actividadoperativa !== e);
+    location.reload;
   }
 
   onActividadOperativaEditar(actividadoperativa: ActividadoperativaImpl){
@@ -40,6 +42,8 @@ export class EventosComponent implements OnInit {
 
   onGestionJudicialEliminar(gestionjudicial: GestionjudicialImpl){
     this.eventoService.deleteGestionJudicial(gestionjudicial.eventoId).subscribe();
+    this.gestionesjudiciales = this.gestionesjudiciales.filter((e) => gestionjudicial !== e);
+    location.reload;
   }
 
   onGestionJudicialEditar(gestionjudicial: GestionjudicialImpl){
