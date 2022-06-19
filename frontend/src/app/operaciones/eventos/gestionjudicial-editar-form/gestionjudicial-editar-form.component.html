@@ -1,33 +1,76 @@
 <body class="d-flex flex-column min-vh-100">
     <main>
         <div class="container mt-auto">
-            <div class="row justify-content-center">
-                <div class="col-8">
-                    <h2>Editar Evento</h2>
-                    <form class="was-validated">
+            
+            <h2>Editar Gestión Judicial</h2>
 
-                        <div class="mb-3 mt-3">
+            <form #GJeditarForm="ngForm"  class="was-validated">
+
+                <div class="row justify-content-center">
+                    <div class="col-8">
+
+                        <!-- <div class="mb-3 mt-3">
                             <label class="form-label">Tipo de Evento:</label>
                             <input type="text" class="form-control" placeholder="Gestion Judicial" name="tipoEvento">
-                        </div>
+                        </div> -->
 
                         <div class="mb-3">
                             <label class="form-label">Nombre:</label>
-                            <input type="text" class="form-control"
-                                name="nombreGestionJudicial" minlength="3" maxlength="30"
-                                [(ngModel)]="gestionjudicial.nombre" required>
+                            <input type="text" class="form-control" 
+                                name="nombreGestionJudicial" minlength="12" maxlength="50"
+                                [(ngModel)]="gestionjudicial.nombre" required
+                                #nombreGestionJudicial="ngModel" [ngClass]="{
+                                    'is-invalid': nombreGestionJudicial.invalid && (nombreGestionJudicial.dirty || nombreGestionJudicial.touched),
+                                    'is-valid': !nombreGestionJudicial.invalid
+                                }">
+                            <div class="text-danger"
+                                *ngIf="nombreGestionJudicial.invalid && (nombreGestionJudicial.dirty || nombreGestionJudicial.touched)">
+                                <div *ngIf="nombreGestionJudicial.errors?.['required']">
+                                    Debe introducir el nombre de la gestion judicial.
+                                </div>
+                                <div *ngIf="nombreGestionJudicial.errors?.['minlength']">
+                                    El nombre de la gestion judicial debe tener un minimo de 12 caracteres y un máximo de 50.
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Descripción:</label>
-                            <textarea type="text" class="form-control" rows="6" name="descripcionGestionJudicial" minlength="3" maxlength="500"
-                                [(ngModel)]="gestionjudicial.descripcion" required></textarea>
+                            <textarea type="text" class="form-control" rows="6"
+                                name="descripcionGestionJudicial" minlength="12" maxlength="500" [(ngModel)]="gestionjudicial.descripcion" required
+                                #descripcionGestionJudicial="ngModel" [ngClass]="{
+                                    'is-invalid': descripcionGestionJudicial.invalid && (descripcionGestionJudicial.dirty || descripcionGestionJudicial.touched),
+                                    'is-valid': !descripcionGestionJudicial.invalid
+                            }"></textarea>
+                            <div class="text-danger"
+                                *ngIf="descripcionGestionJudicial.invalid && (descripcionGestionJudicial.dirty || descripcionGestionJudicial.touched)">
+                                <div *ngIf="descripcionGestionJudicial.errors?.['required']">
+                                    Debe introducir la descripcion de la gestion judicial.
+                                </div>
+                                <div *ngIf="descripcionGestionJudicial.errors?.['minlength']">
+                                    La descripcion de la gestion judicial debe tener un minimo de 12 caracteres y un maximo de 500.
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Órgano Judicial:</label>
-                            <input type="text" class="form-control" name="organoJudicial" minlength="3" maxlength="100" 
-                            [(ngModel)]="gestionjudicial.organoJudicial" required>
+                            <input type="text" class="form-control"
+                                name="organoJudicial" minlength="12" maxlength="50" 
+                                [(ngModel)]="gestionjudicial.organoJudicial" required
+                                #organoJudicial="ngModel" [ngClass]="{
+                                    'is-invalid': organoJudicial.invalid && (organoJudicial.dirty || organoJudicial.touched),
+                                    'is-valid': !organoJudicial.invalid
+                            }">
+                            <div class="text-danger"
+                                *ngIf="organoJudicial.invalid && (organoJudicial.dirty || organoJudicial.touched)">
+                                <div *ngIf="organoJudicial.errors?.['required']">
+                                    Debe introducir el organo judicial.
+                                </div>
+                                <div *ngIf="organoJudicial.errors?.['minlength']">
+                                    El nombre del organo judicial debe tener un minimo de 12 caracteres y un maximo de 50.
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3 mt-3">
@@ -40,24 +83,31 @@
                             </select>
                         </div>
 
-                    </form>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-
-                <div class="col-2">
-                    <button id="guardar" type="submit" class="btn btn-primary" 
-                    (click)="onEditarGestionJudicial()" routerLink="/operaciones">Guardar</button>
+                    </div>
                 </div>
 
-                <div class="col-2">
-                    <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+                <div class="row justify-content-center">
+                    
+                    <div class="col-2">
+                        <button id="guardarGJ" type="submit" class="btn btn-primary" 
+                        [disabled]="!GJeditarForm.form.valid" (click)="onEditarGestionJudicial()" routerLink="/operaciones">Editar</button>
+                    </div>
+                    
+                    <div class="col-2">
+                        <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+                    </div>
+                    
+                    <div class="col-2">
+                        <button id="reset" type="reset" class="btn btn-warning">Resetear valores</button>
+                    </div>
                 </div>
 
-            </div>
-
+            </form>
+            
         </div>
         <br>         <pre>{{ gestionjudicial | json }}</pre>
+        <br>
+        <br>
+
     </main>
 </body>
