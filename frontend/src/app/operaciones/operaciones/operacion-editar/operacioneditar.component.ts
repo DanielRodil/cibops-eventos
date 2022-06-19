@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Agente } from '../../models/agente';
 import { Operacion } from '../../models/operacion';
 import { OperacionImpl } from '../../models/operacion-impl';
+import { AgenteService } from '../../service/agente.service';
 import { OperacionService } from '../../service/operacion.service';
 
 
@@ -14,15 +16,19 @@ import { OperacionService } from '../../service/operacion.service';
 export class OperacioneditarComponent implements OnInit {
 
   operacion: Operacion = new OperacionImpl();
+  agentes: Agente[] = [];
 
   constructor(private operacionService: OperacionService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private agenteService: AgenteService) { }
 
   ngOnInit(): void {
     let id: string = this.cargarOperacion();
     this.operacionService.getOperacion(id).subscribe(response => 
       this.operacion = this.operacionService.mapearOperacion(response));
+    this.agenteService.getAgentes().subscribe((response) =>
+      this.agentes = this.agenteService.extraerAgentes(response));
   }
 
   onEditarOperacion(): void {

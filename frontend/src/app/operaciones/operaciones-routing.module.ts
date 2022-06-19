@@ -47,10 +47,6 @@ const routes: Routes = [
   {
     path: 'gestionesjudiciales/editar/:id',
     component: GestionjudicialEditarFormComponent
-  },
-  {
-    path: 'agentes',
-    component: AgentesComponent
   }
 ];
 
