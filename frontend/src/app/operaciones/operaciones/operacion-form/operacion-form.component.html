@@ -48,6 +48,16 @@
               </div>
             </div>
 
+            <div class="mb-3 mt-3">
+              <label class="form-label operacion">POC:</label>
+              <select [(ngModel)]="operacion.agente" class="form-select" 
+                      aria-label="Default select example" name="selectorFormulario" id="selectorAgente" required>
+                  <option class="form-control agente"  
+                          *ngFor="let agente of agentes" 
+                          value="{{agente.urlAgente}}">{{ agente.tip }}</option>
+              </select>
+          </div>
+
           </div>
         </div>
 
@@ -90,7 +100,7 @@
           </div>
 
           <div class="col-2">
-            <button id="reset" type="reset" class="btn btn-warning">Restablecer valores</button> 
+            <button id="reset" type="reset" class="btn btn-warning">Resetear valores</button> 
           </div>
   
         </div>

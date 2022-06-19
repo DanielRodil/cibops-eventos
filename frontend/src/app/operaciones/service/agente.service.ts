@@ -38,6 +38,7 @@ export class AgenteService {
     let agente: Agente = new AgenteImpl();
     agente.agenteId = this.getId(agenteApi._links.agente.href);
     agente.tip = agenteApi.tip;
+    agente.urlAgente = agenteApi._links.agente.href;
     return agente;
   }
 

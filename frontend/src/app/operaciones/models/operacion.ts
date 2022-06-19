@@ -5,4 +5,5 @@ export interface Operacion {
   fechaApertura: string;
   fechaCierre: string;
   urlOperacion: string;
+  agente: string;
 }
