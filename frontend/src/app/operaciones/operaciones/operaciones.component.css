@@ -16,3 +16,7 @@ main p {
 body {
   background-color: #EEEEEE;
 }
+
+#espacioinferior {
+  margin-bottom: 60px;
+}

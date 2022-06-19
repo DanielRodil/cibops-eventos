@@ -4,23 +4,14 @@ main > .container {
     padding-top: 100px;
   }
   
-  /* los h1 descendientes de main tienen los siguientes margenes superior e inferior de 30px,
-  utilizan el estilo de fuente importado de google y un tamaño de 64px */
-  main h1 {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 64px;
-  }
-  
-  /* los h2 descendientes de main tienen los siguientes margenes superior e inferior de 30px,
-  utilizan el estilo de fuente importado de google y un tamaño de 48px */
+  /* los h2 descendientes de main tienen los siguientes margenes superior e inferior de 30px y un tamaño de 48px */
   main h2 {
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 48px;
   }
   
-  /* los p descendientes utilizan el estilo de fuente importado de google y un tamaño de 24px */
+  /* los p descendientes un tamaño de 24px */
   main p {
     font-size: 24px;
   }
@@ -33,5 +24,10 @@ main > .container {
   * {
     background-color: white;
   }
+
+  #espacioinferior {
+    margin-bottom: 60px;
+  }
+  
     
   
