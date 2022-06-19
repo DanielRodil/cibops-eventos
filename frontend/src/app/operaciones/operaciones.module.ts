@@ -20,6 +20,8 @@ import { GestionjudicialConsultarFormComponent } from './eventos-consultar/gesti
 import { ActividadoperativaConsultarFormComponent } from './eventos-consultar/actividadoperativa-consultar-form/actividadoperativa-consultar-form.component';
 import { ActividadoperativaEditarFormComponent } from './eventos/actividadoperativa-editar-form/actividadoperativa-editar-form.component';
 import { GestionjudicialEditarFormComponent } from './eventos/gestionjudicial-editar-form/gestionjudicial-editar-form.component';
+import { AgentesComponent } from './agentes/agentes.component';
+import { AgenteItemComponent } from './agentes/agente-item/agente-item.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { GestionjudicialEditarFormComponent } from './eventos/gestionjudicial-ed
     GestionjudicialConsultarFormComponent,
     ActividadoperativaConsultarFormComponent,
     ActividadoperativaEditarFormComponent,
-    GestionjudicialEditarFormComponent
+    GestionjudicialEditarFormComponent,
+    AgentesComponent,
+    AgenteItemComponent
   ],
   imports: [
     CommonModule,

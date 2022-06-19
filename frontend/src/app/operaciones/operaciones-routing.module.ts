@@ -9,6 +9,7 @@ import { ActividadoperativaConsultarFormComponent } from './eventos-consultar/ac
 import { GestionjudicialConsultarFormComponent } from './eventos-consultar/gestionjudicial-consultar-form/gestionjudicial-consultar-form.component';
 import { ActividadoperativaEditarFormComponent } from './eventos/actividadoperativa-editar-form/actividadoperativa-editar-form.component';
 import { GestionjudicialEditarFormComponent } from './eventos/gestionjudicial-editar-form/gestionjudicial-editar-form.component';
+import { AgentesComponent } from './agentes/agentes.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
     path: 'gestionesjudiciales/editar/:id',
     component: GestionjudicialEditarFormComponent
   },
+  {
+    path: 'agentes',
+    component: AgentesComponent
+  }
 ];
 
 @NgModule({
