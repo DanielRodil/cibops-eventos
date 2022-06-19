@@ -4,74 +4,102 @@
 
       <h2>Alta Operación</h2>
 
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <form action="/action_page.php" class="was-validated">
+      <form #operacionForm="ngForm" class="was-validated">
+
+        <div class="row justify-content-center">
+          <div class="col-8">
 
             <div class="mb-3 mt-3">
               <label class="form-label">Nombre:</label>
-              <input type="text" class="form-control" id="nombreOperacion"
-                placeholder="Introduzca el nombre de la Operación" name="nombreOperacion" minlength="3" maxlength="30"
-                [(ngModel)]="operacion.nombre" required>
+              <input type="text" class="form-control" placeholder="Introduzca el nombre de la Operación"
+                name="nombreOperacion" minlength="3" maxlength="30" [(ngModel)]="operacion.nombre" required
+                #nombreOperacion="ngModel" [ngClass]="{
+                  'is-invalid': nombreOperacion.invalid && (nombreOperacion.dirty || nombreOperacion.touched),
+                  'is-valid': !nombreOperacion.invalid
+              }">
+              <div class="text-danger"
+                *ngIf="nombreOperacion.invalid && (nombreOperacion.dirty || nombreOperacion.touched)">
+                <div *ngIf="nombreOperacion.errors?.['required']">
+                  Debe introducir un nombre de operacion.
+                </div>
+                <div *ngIf="nombreOperacion.errors?.['minlength']">
+                  El nombre de la operacion debe tener un minimo de 3 caracteres.
+                </div>
+              </div>
             </div>
 
             <div class="mb-3">
               <label class="form-label">Descripción:</label>
-              <textarea type="text" class="form-control" rows="6" id="descripcion"
-                placeholder="Introduzca la descripción de la Operación (máximo 500 caracteres)" name="descripcion"
-                minlength="3" maxlength="500" [(ngModel)]="operacion.descripcion" required></textarea>
+              <textarea type="text" class="form-control" rows="6"
+                placeholder="Introduzca la descripción de la Operación (máximo 500 caracteres)"
+                name="descripcionOperacion" minlength="3" maxlength="500" [(ngModel)]="operacion.descripcion" required
+                #descripcionOperacion="ngModel" [ngClass]="{
+                  'is-invalid': descripcionOperacion.invalid && (descripcionOperacion.dirty || descripcionOperacion.touched),
+                  'is-valid': !descripcionOperacion.invalid
+              }"></textarea>
+              <div class="text-danger"
+                *ngIf="descripcionOperacion.invalid && (descripcionOperacion.dirty || descripcionOperacion.touched)">
+                <div *ngIf="descripcionOperacion.errors?.['required']">
+                  Debe introducir la descripcion de la operacion.
+                </div>
+                <div *ngIf="descripcionOperacion.errors?.['minlength']">
+                  La descripcion de la operacion debe tener un minimo de 3 caracteres.
+                </div>
+              </div>
             </div>
 
-          </form>
+          </div>
         </div>
-      </div>
 
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <form action="/action_page.php" class="was-validated">
+        <div class="row justify-content-center">
+
+          <div class="col-4">
             <div class="mb-3">
               <label class="form-label">Fecha Apertura:</label>
-              <input type="date" class="form-control" id="fechaApertura" name="fechaApertura"
-                [(ngModel)]="operacion.fechaApertura">
+              <input type="date" class="form-control" name="fechaApertura" [(ngModel)]="operacion.fechaApertura"
+                required #fechaApertura="ngModel" [ngClass]="{
+                'is-invalid': fechaApertura.invalid && (fechaApertura.dirty || fechaApertura.touched),
+                'is-valid': !fechaApertura.invalid
+            }">
+              <div class="text-danger" *ngIf="fechaApertura.invalid && (fechaApertura.dirty || fechaApertura.touched)">
+                <div *ngIf="fechaApertura.errors?.['required']">
+                  Debe introducir la fecha de apertura de la operacion.
+                </div>
+              </div>
             </div>
-          </form>
-        </div>
+          </div>
 
-        <div class="col-4">
-          <form action="/action_page.php" class="was-validated">
+          <div class="col-4">
             <div class="mb-3">
               <label class="form-label">Fecha Cierre:</label>
-              <input type="date" class="form-control" id="fechaCierre" name="fechaCierre"
-                [(ngModel)]="operacion.fechaCierre">
+              <input type="date" class="form-control" name="fechaCierre" disabled [(ngModel)]="operacion.fechaCierre">
             </div>
-          </form>
+          </div>
+
         </div>
 
-      </div>
+        <div class="row justify-content-center">
+        
+          <div class="col-2">
+            <button id="guardar" type="submit" class="btn btn-primary" (click)="onAddOperacion()"
+              routerLink="/operaciones" [disabled]="!operacionForm.form.valid">Guardar</button>
+          </div>
+  
+          <div class="col-2">
+            <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+          </div>
 
-      <div class="row justify-content-center">
-        <div class="col-2">
-          <button id="guardar" type="submit" class="btn btn-primary" (click)="onAddOperacion()"
-            routerLink="/operaciones">Guardar</button>
+          <div class="col-2">
+            <button id="reset" type="reset" class="btn btn-warning">Restablecer valores</button> 
+          </div>
+  
         </div>
 
-        <div class="col-2">
-          <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
-        </div>
-
-      </div>
+      </form>
 
     </div>
-    <br>  <pre>{{ operacion | json }}</pre>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    
+    <pre>{{ operacion | json }}</pre>
+
   </main>
 </body>

@@ -3,15 +3,14 @@ main > .container {
   padding-top: 100px;
 }
 
-/* los h2 descendientes de main tienen los siguientes margenes superior e inferior de 30px,
-utilizan el estilo de fuente importado de google y un tamaño de 48px */
+/* los h2 descendientes de main tienen los siguientes margenes superior e inferior de 30px y un tamaño de 48px */
 main h2 {
   margin-top: 30px;
   margin-bottom: 30px;
   font-size: 48px;
 }
 
-#guardar, #cancelar {
-  margin-top: 30px;
-  margin-bottom: 30px;
+#guardar, #cancelar, #reset {
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
