@@ -23,7 +23,7 @@ export class ActividadoperativaItemComponent implements OnInit {
   }
 
   eliminarAO(): void{
-    if (confirm(`¿Está seguro de que desea eliminar la actividad operativa ${this.actividadoperativa.nombre}?`)){
+    if (confirm(`¿Está seguro de que desea eliminar la actividad operativa ${this.actividadoperativa.nombre}? Recuerde que no puede borrar un evento si tiene agentes asignados`)){
       this.actividadOperativaEliminar.emit(this.actividadoperativa);
     }
   }

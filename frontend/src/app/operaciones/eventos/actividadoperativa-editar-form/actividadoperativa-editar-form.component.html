@@ -9,10 +9,10 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
 
-                        <!-- <div class="mb-3 mt-3">
+                        <div class="mb-3 mt-3">
                             <label class="form-label">Tipo de Evento:</label>
                             <input type="text" class="form-control" placeholder="Actividad operativa" name="tipoEvento">
-                        </div> -->
+                        </div>
 
                         <div class="mb-3">
                             <label class="form-label">Nombre:</label>
@@ -55,9 +55,22 @@
 
                         <div><label class="form-label">Gastos:</label></div>
                         <div class="mb-3 input-group">
-                            <input type="text" class="form-control" 
-                            maxlength="4" [(ngModel)]="actividadoperativa.gastos">
+                            <input type="number" class="form-control" 
+                            min="0" max="9999" [(ngModel)]="actividadoperativa.gastos"
+                            #gastos="ngModel" [ngClass]="{
+                                'is-invalid': gastos.invalid && (gastos.dirty || gastos.touched),
+                                'is-valid': !gastos.invalid
+                            }">
                             <span class="input-group-text">€</span>
+                            <div class="text-danger"
+                            *ngIf="gastos.invalid && (gastos.dirty || gastos.touched)">
+                            <div *ngIf="gastos.errors?.['min']">
+                                Los gastos no pueden ser negativos ni exceder de 9.999 €
+                            </div>
+                            <div *ngIf="gastos.errors?.['max']">
+                                Los gastos no pueden ser negativos ni exceder de 9.999 €
+                            </div>
+                        </div>
                         </div>
 
                         <div class="mb-3 mt-3">
@@ -67,6 +80,12 @@
                                 <option class="form-control operacion"  
                                         *ngFor="let operacion of operaciones" 
                                         value="{{operacion.urlOperacion}}">{{ operacion.nombre }}</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3 mt-3">
+                            <label class="form-label operacion">Añadir Agente:</label>
+                            <select class="form-select" aria-label="Default select example" name="selectorFormulario" id="selectorAgente">
                             </select>
                         </div>
 
@@ -88,9 +107,9 @@
                         <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
                     </div>
                     
-                    <div class="col-2">
+                    <!-- <div class="col-2">
                         <button id="reset" type="reset" class="btn btn-warning">Resetear valores</button>
-                    </div>
+                    </div> -->
                 </div>
 
             </form>

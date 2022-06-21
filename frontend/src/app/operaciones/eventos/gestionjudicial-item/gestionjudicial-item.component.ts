@@ -23,7 +23,7 @@ export class GestionjudicialItemComponent implements OnInit {
   }
 
   eliminarGJ(): void{
-    if (confirm(`¿Está seguro de que desea eliminar la gestion judicial ${this.gestionjudicial.nombre}?`)){
+    if (confirm(`¿Está seguro de que desea eliminar la gestion judicial ${this.gestionjudicial.nombre}? Recuerde que no puede borrar un evento si tiene agentes asignados`)){
       this.gestionjudicialEliminar.emit(this.gestionjudicial);
     }
   }

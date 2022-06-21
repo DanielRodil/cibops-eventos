@@ -26,7 +26,7 @@ export class OperacionItemComponent implements OnInit {
   }
 
   eliminar(): void{
-    if (confirm(`¿Está seguro de que desea eliminar la operación ${this.operacion.nombre}? Recuerde que no puede borrar una operación sin borrar antes sus eventos`)){
+    if (confirm(`¿Está seguro de que desea eliminar la operación ${this.operacion.nombre}? Recuerde que no puede borrar una operación si tiene eventos asignados`)){
       this.operacionEliminar.emit(this.operacion);
     }
   }

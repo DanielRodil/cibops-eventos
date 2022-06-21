@@ -4,7 +4,7 @@
             
             <h2>Nuevo Evento</h2>
 
-            <form #eventoForm="ngForm"  class="was-validated">
+            <form #eventoForm="ngForm"  class="was-validated" id="formulario">
 
                 <div class="row justify-content-center">
                     <div class="col-8">
@@ -60,9 +60,22 @@
 
                         <div><label class="form-label" *ngIf="formulario == 1">Gastos:</label></div>
                         <div class="mb-3 input-group" *ngIf="formulario == 1">
-                            <input type="text" class="form-control" placeholder="Introduzca los gastos realizados durante la Actividad Operativa"
-                            maxlength="4" [(ngModel)]="actividadoperativa.gastos">
+                            <input type="number" class="form-control" placeholder="Introduzca los gastos realizados durante la Actividad Operativa"
+                            min="0" max="9999" [(ngModel)]="actividadoperativa.gastos"
+                            #gastos="ngModel" [ngClass]="{
+                                'is-invalid': gastos.invalid && (gastos.dirty || gastos.touched),
+                                'is-valid': !gastos.invalid
+                            }">
                             <span class="input-group-text">€</span>
+                            <div class="text-danger"
+                                *ngIf="gastos.invalid && (gastos.dirty || gastos.touched)">
+                                <div *ngIf="gastos.errors?.['min']">
+                                    Los gastos no pueden ser negativos ni exceder de 9.999 €
+                                </div>
+                                <div *ngIf="gastos.errors?.['max']">
+                                    Los gastos no pueden ser negativos ni exceder de 9.999 €
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3" *ngIf="formulario == 2">
@@ -141,9 +154,9 @@
                     <div class="col-2" *ngIf="formulario ==1 || formulario == 2">
                         <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
                     </div>
-                    <div class="col-2" *ngIf="formulario ==1 || formulario == 2">
+                    <!-- <div class="col-2" *ngIf="formulario ==1 || formulario == 2">
                         <button id="reset" type="reset" class="btn btn-warning">Restablecer valores</button>
-                    </div>
+                    </div> -->
                 </div>
 
             </form>
@@ -151,6 +164,9 @@
         </div>
         <!-- <br>         <pre>{{ actividadoperativa | json }}</pre>
         <br>         <pre>{{ gestionjudicial | json }}</pre> -->
+        <br>
+        <br>
+        <br>
         <br>
         <br>
         <br>
