@@ -39,6 +39,10 @@ export class EventoService {
 
   extraerActividadesOperativas(respuestaApi: any): ActividadoperativaImpl[] {
     const actividadesoperativas: ActividadoperativaImpl[] = [];
+    let respuesta: any = respuestaApi._embedded.actividadesoperativas;
+    if (respuesta === undefined) {
+      console.info('Operacion sin actividades operativas');
+    } else
     respuestaApi._embedded.actividadesoperativas.forEach((p: any) => {
       actividadesoperativas.push(this.mapearActividadesOperativas(p));
     });
@@ -112,6 +116,10 @@ export class EventoService {
 
   extraerGestionesJudiciales(respuestaApi: any): GestionjudicialImpl[] {
     const gestionesjudiciales: GestionjudicialImpl[] = [];
+    let respuesta: any = respuestaApi._embedded.gestionesjudiciales;
+    if (respuesta === undefined) {
+      console.info('Operacion sin gestiones judiciales');
+    } else
     respuestaApi._embedded.gestionesjudiciales.forEach((p: any) => {
       gestionesjudiciales.push(this.mapearGestionesJudiciales(p));
     });
