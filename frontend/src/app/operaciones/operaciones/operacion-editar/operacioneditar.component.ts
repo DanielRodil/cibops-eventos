@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Agente } from '../../models/agente';
 import { Operacion } from '../../models/operacion';
 import { OperacionImpl } from '../../models/operacion-impl';
@@ -18,10 +19,14 @@ export class OperacioneditarComponent implements OnInit {
   operacion: Operacion = new OperacionImpl();
   agentes: Agente[] = [];
 
+  private host: string = environment.host;
+  private urlEndPoint: string = `${this.host}operaciones`
+
   constructor(private operacionService: OperacionService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private agenteService: AgenteService) { }
+              private agenteService: AgenteService,
+              private http: HttpClient) { }
 
   ngOnInit(): void {
     let id: string = this.cargarOperacion();
@@ -29,6 +34,8 @@ export class OperacioneditarComponent implements OnInit {
       this.operacion = this.operacionService.mapearOperacion(response));
     this.agenteService.getAgentes().subscribe((response) =>
       this.agentes = this.agenteService.extraerAgentes(response));
+    setTimeout(() => {
+      this.http.get<any>(`${this.urlEndPoint}/${id}/agente`).subscribe(res => this.operacion.agente = this.agenteService.mapearAgente(res).urlAgente); }, 500);
   }
 
   onEditarOperacion(): void {

@@ -10,16 +10,22 @@
                         
                         <div class="mb-3 mt-3">
                             <label class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="nombreOperacion" 
+                            <input type="text" class="form-control" name="nombreOperacion" 
                                 [(ngModel)]="operacion.nombre" readonly>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Descripción:</label>
-                            <textarea type="text" class="form-control" rows="6" id="descripcion" name="descripcion"
+                            <textarea type="text" class="form-control" rows="6" name="descripcion"
                                 [(ngModel)]="operacion.descripcion" readonly></textarea>
                         </div>
 
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">POC:</label>
+                            <input type="text" class="form-control" name="tipAgente"
+                                [(ngModel)]="agente.tip" readonly>
+                        </div>
+                        
                     </form>
                 </div>
             </div>
